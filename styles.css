@@ -1,0 +1,24 @@
+body {
+  height: 100vh;
+}
+#main {
+  max-width: 720px !important;
+}
+#main > div {
+  /* height: 100px; */
+  background-color: rgba(0000, 000, 0000, 0.5);
+}
+
+#profile-image {
+  height: 100px;
+  width: 100px;
+}
+.bio {
+  font-size: small;
+}
+@media screen and (max-width: 576px) {
+  #main .username,
+  #main .bio p {
+    text-align: center;
+  }
+}
