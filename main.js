@@ -35,7 +35,7 @@ const fetchUserDetail = (username) => {
     main.innerHTML = ``;
     main.insertAdjacentElement("afterbegin", card);
     }).catch((err)=>{
-      console.log(err)
+       alert(err.message)
     })
 };
 
