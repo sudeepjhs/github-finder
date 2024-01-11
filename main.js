@@ -27,7 +27,7 @@ const createCard = (user) => {
  */
 const fetchUserDetail = (username) => {
     const res =  fetch(`https://api.github.com/users/${username}`).then((res)=>{
-      if (res.ok) return res.josn()
+      if (res.ok) return res.json()
       else throw new Error(`Username ${username} not found`)
     }).then((data)=>{
         const card = createCard(data);
