@@ -25,18 +25,18 @@ const createCard = (user) => {
 /**
  * @param {string} username
  */
-const fetchUserDetail = async (username) => {
-  try {
-    const res = await (
-      await fetch(`https://api.github.com/users/${username}`)
-    ).json();
-    const card = createCard(res);
+const fetchUserDetail = (username) => {
+    const res =  fetch(`https://api.github.com/users/${username}`).then((res)=>{
+      if (res.ok) return res.josn()
+      else throw new Error(`Username ${username} not found`)
+    }).then((data)=>{
+        const card = createCard(data);
     const main = document.getElementById("main");
     main.innerHTML = ``;
     main.insertAdjacentElement("afterbegin", card);
-  } catch (error) {
-    console.log(error);
-  }
+    }).catch((err)=>{
+      console.log(err)
+    })
 };
 
 document.addEventListener("DOMContentLoaded", function () {
